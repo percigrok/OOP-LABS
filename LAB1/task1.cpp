@@ -23,3 +23,14 @@ void printArray(int (&arr)[10])
     std::cout << std::endl;
 }
 
+/// Обменивает два элемента массива по индексам
+/// @param arr Ссылка на массив из 10 целых чисел
+/// @param index1 Индекс первого элемента
+/// @param index2 Индекс второго элемента
+/// @details Обменивает значения элементов на указанных позициях
+void swapElements(int (&arr)[10], int index1, int index2)
+{
+    int temp = arr[index1];
+    arr[index1] = arr[index2];
+    arr[index2] = temp;
+}
