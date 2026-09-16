@@ -61,15 +61,15 @@ void multiplyByTwo(int (&arr)[10])
 int main()
 {
     int array[10];
-
+ 
     fillArray(array);
     printArray(array);
-
+ 
     swapElements(array, 0, 9);
     printArray(array);
-
+ 
     multiplyByTwo(array);
     printArray(array);
-
+ 
     return 0;
 }
