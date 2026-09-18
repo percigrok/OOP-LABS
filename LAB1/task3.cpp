@@ -22,3 +22,25 @@ SafeArray createArray(int size)
     arr.size = size;
     return arr;
 }
+
+/**
+ * @brief Безопасный доступ к элементу массива с проверкой границ
+ * @param arr Ссылка на структуру SafeArray
+ * @param index Индекс элемента
+ * @return Ссылка на элемент массива или статическую переменную если индекс вне границ
+ * @details
+ * - Проверяет находится ли индекс в допустимом диапазоне [0, size)
+ * - Если индекс некорректный: выводит "Error" и возвращает ссылку на статическую переменную
+ * - Если индекс корректный: возвращает ссылку на arr.data[index]
+ * - Может быть использована слева от оператора присваивания: getElement(arr, 0) = 5;
+ */
+int& getElement(SafeArray& arr, int index)
+{
+    static int error = -1;
+    if (index >= arr.size || index < 0)
+    {
+        std::cout << "Error";
+        return error;
+    }
+    return arr.data[index];
+}
