@@ -44,3 +44,17 @@ int& getElement(SafeArray& arr, int index)
     }
     return arr.data[index];
 }
+
+/**
+ * @brief Выводит содержимое массива на экран
+ * @param arr Констатная ссылка на структуру SafeArray
+ * @details Использует const чтобы указать что массив не изменяется во время вывода
+ */
+void printSafe(const SafeArray& arr)
+{
+    for (int i = 0; i < arr.size; i++)
+    {
+        std::cout << arr.data[i] << " ";
+    }
+    std::cout << std::endl;
+}
