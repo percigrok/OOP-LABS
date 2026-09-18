@@ -40,3 +40,45 @@ void process(int*& arr, int& size)
         size = newSize;
     }
 }
+/**
+ * @brief Главная функция программы
+ * @details
+ * 1. Читает размер массива N с клавиатуры
+ * 2. Выделяет память для N целых чисел
+ * 3. Читает N значений со стандартного ввода
+ * 4. Выводит исходный массив
+ * 5. Обрабатывает массив (обрезает на первом отрицательном элементе)
+ * 6. Выводит результирующий массив
+ * 7. Безопасно освобождает память
+ */
+int main()
+{
+    int n;
+    std::cin >> n;
+ 
+    int* arr = new int[n]{};
+ 
+    for (int i = 0; i < n; i++)
+    {
+        std::cin >> arr[i];
+    }
+ 
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+ 
+    process(arr, n);
+ 
+    for (int i = 0; i < n; i++)
+    {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+ 
+    delete[] arr;
+    arr = nullptr;
+ 
+    return 0;
+}
