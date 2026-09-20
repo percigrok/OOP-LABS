@@ -58,3 +58,38 @@ void printSafe(const SafeArray& arr)
     }
     std::cout << std::endl;
 }
+
+/**
+ * @brief Изменяет размер массива на новый размер
+ * @param arr Ссылка на структуру SafeArray
+ * @param newSize Новый размер массива
+ * @details
+ * - Если newSize < текущий размер: выводит удаленные элементы перед обрезкой
+ * - Если newSize > текущий размер: новые элементы инициализируются нулем
+ * - Сохраняет существующие элементы до минимума из старого и нового размера
+ * - Безопасно освобождает старую память перед обновлением указателя
+ */
+void reSizeArray(SafeArray& arr, int newSize)
+{
+    if (newSize < arr.size)
+    {
+        for (int i = newSize; i < arr.size; i++)
+        {
+            std::cout << arr.data[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+ 
+    int* newData = new int[newSize]{};
+ 
+    int copySize = (newSize < arr.size) ? newSize : arr.size;
+    for (int i = 0; i < copySize; i++)
+    {
+        newData[i] = arr.data[i];
+    }
+ 
+    delete[] arr.data;
+    arr.data = newData;
+    arr.size = newSize;
+}
+
