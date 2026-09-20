@@ -93,3 +93,14 @@ void reSizeArray(SafeArray& arr, int newSize)
     arr.size = newSize;
 }
 
+/**
+ * @brief Безопасно освобождает память массива
+ * @param arr Ссылка на структуру SafeArray
+ * @details Устанавливает указатель в nullptr и размер в 0 после освобождения
+ */
+void deleteArray(SafeArray& arr)
+{
+    delete[] arr.data;
+    arr.data = nullptr;
+    arr.size = 0;
+}
