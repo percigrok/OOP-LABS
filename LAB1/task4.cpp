@@ -90,3 +90,34 @@ void freeMatrix(int** matrix, int rows)
     }
     delete[] matrix;
 }
+
+/**
+ * @brief Главная функция программы
+ * @details
+ * 1. Читает размеры матрицы (строки x столбцы)
+ * 2. Выделяет двумерный массив для хранения оценок
+ * 3. Заполняет матрицу данными со стандартного ввода
+ * 4. Демонстрирует работу printMatrix() с разными параметрами
+ * 5. Безопасно освобождает память
+ */
+int main()
+{
+    int rows, cols;
+ 
+    std::cin >> rows >> cols;
+ 
+    int** grades = allocateMatrix(rows, cols);
+ 
+    fillMatrix(grades, rows, cols);
+ 
+    printMatrix(grades, rows, cols);
+ 
+    printMatrix(grades, rows, cols, true, "Grades");
+ 
+    printMatrix(grades, rows, cols, false, "Simple");
+ 
+    freeMatrix(grades, rows);
+ 
+    return 0;
+}
+ 
