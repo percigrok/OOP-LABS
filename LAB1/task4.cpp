@@ -37,3 +37,38 @@ void fillMatrix(int** matrix, int rows, int cols)
         }
     }
 }
+
+/**
+ * @brief Выводит матрицу с опциональным форматированием
+ * @param matrix Указатель на матрицу
+ * @param rows Количество строк
+ * @param cols Количество столбцов
+ * @param showBorders Выводить вертикальные границы (по умолчанию: true)
+ * @param title Заголовок матрицы (по умолчанию: "Matrix")
+ * @details
+ * - Использует параметры по умолчанию для гибкого вызова функции
+ * - showBorders = true: добавляет разделители "|"
+ * - showBorders = false: простой вывод без границ
+ * - Выводит заголовок перед содержимым матрицы
+ */
+void printMatrix(int** matrix, int rows, int cols, bool showBorders = true, const char* title = "Matrix")
+{
+    std::cout << title << std::endl;
+ 
+    for (int i = 0; i < rows; i++)
+    {
+        if (showBorders)
+        {
+            std::cout << "| ";
+        }
+        for (int j = 0; j < cols; j++)
+        {
+            std::cout << matrix[i][j] << " ";
+        }
+        if (showBorders)
+        {
+            std::cout << "|";
+        }
+        std::cout << std::endl;
+    }
+}
