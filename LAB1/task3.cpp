@@ -104,3 +104,34 @@ void deleteArray(SafeArray& arr)
     arr.data = nullptr;
     arr.size = 0;
 }
+
+
+/**
+ * @brief Главная функция программы
+ * @details
+ * 1. Создает массив из 5 элементов
+ * 2. Заполняет массив используя getElement() (безопасный доступ)
+ * 3. Изменяет элемент [2] на значение 999
+ * 4. Попытается обращения к элементу [10] (вне границ, но обработано безопасно через заглушку)
+ * 5. Увеличивает размер до 8 элементов (добавляет нули)
+ * 6. Уменьшает размер до 3 элементов (выводит удаленные элементы)
+ * 7. Освобождает память
+ */
+int main()
+{
+    SafeArray myArr = createArray(5);
+ 
+    for (int i = 0; i < 5; i++)
+    {
+        getElement(myArr, i) = i + 1;
+    }
+    printSafe(myArr);
+    getElement(myArr, 2) = 999;
+    printSafe(myArr);
+    reSizeArray(myArr, 8);
+    printSafe(myArr);
+    reSizeArray(myArr, 3);
+    printSafe(myArr);
+    deleteArray(myArr);
+    return 0;
+}
