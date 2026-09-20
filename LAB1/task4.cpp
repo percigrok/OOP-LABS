@@ -72,3 +72,21 @@ void printMatrix(int** matrix, int rows, int cols, bool showBorders = true, cons
         std::cout << std::endl;
     }
 }
+
+/**
+ * @brief Освобождает память двумерного массива
+ * @param matrix Указатель на матрицу
+ * @param rows Количество строк
+ * @details
+ * - Освобождает каждую строку (массив целых чисел)
+ * - Затем освобождает массив указателей
+ * - Правильное двухэтапное освобождение памяти для 2D динамических массивов
+ */
+void freeMatrix(int** matrix, int rows)
+{
+    for (int i = 0; i < rows; i++)
+    {
+        delete[] matrix[i];
+    }
+    delete[] matrix;
+}
