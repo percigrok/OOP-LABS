@@ -1,0 +1,15 @@
+PROJECT_NAME           = "Лабораторная работа 1"
+PROJECT_BRIEF          = "Массивы и динамическая память"
+OUTPUT_DIRECTORY       = ./docs
+INPUT                  = .
+FILE_PATTERNS          = *.cpp
+RECURSIVE              = NO
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = html
+HAVE_DOT               = NO
+OUTPUT_LANGUAGE        = Russian
+QUIET                  = NO
