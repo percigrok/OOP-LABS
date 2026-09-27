@@ -50,3 +50,19 @@ public:
      * @details Инвариант: количество страниц должно быть положительным
      */
     Book(const std::string& title, const std::string& author, int pageCount);
+
+/**
+     * @brief Параметризованный конструктор со списком инициализации
+     * 
+     * Альтернативный способ создания книги с явным указанием статуса.
+     * 
+     * @param title Название книги
+     * @param author Автор книги
+     * @param pageCount Количество страниц (должно быть > 0)
+     * @param isBorrowed Начальный статус выдачи
+     * 
+     * @throws std::invalid_argument если pageCount <= 0
+     * 
+     * @details Инвариант: количество страниц должно быть положительным
+     */
+    Book(const std::string& title, const std::string& author, int pageCount, bool isBorrowed);
