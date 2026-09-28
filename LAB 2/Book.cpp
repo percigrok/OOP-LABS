@@ -23,3 +23,16 @@ Book::Book(const std::string& title, const std::string& author, int pageCount)
     }
     totalBooks++;
 }
+
+/**
+ * @brief Параметризованный конструктор со списком инициализации
+ */
+Book::Book(const std::string& title, const std::string& author, int pageCount, bool isBorrowed)
+    : title(title), author(author), pageCount(pageCount), isBorrowed(isBorrowed) {
+    
+    // Инвариант 1: количество страниц должно быть положительным
+    if (pageCount <= 0) {
+        throw std::invalid_argument("Количество страниц должно быть положительным!");
+    }
+    totalBooks++;
+}
