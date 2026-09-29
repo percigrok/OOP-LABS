@@ -55,3 +55,15 @@ bool Book::borrowBook() {
     isBorrowed = true;
     return true;  // Успешно выдана
 }
+
+/**
+ * @brief Вернуть книгу
+ */
+bool Book::returnBook() {
+    // Инвариант 3: книгу, которая не была выдана, нельзя вернуть
+    if (!isBorrowed) {
+        return false;  // Книга не была выдана
+    }
+    isBorrowed = false;
+    return true;  // Успешно возвращена
+}
