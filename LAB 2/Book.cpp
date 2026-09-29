@@ -81,3 +81,15 @@ const std::string& Book::getTitle() const {
 int Book::getPageCount() const {
     return pageCount;
 }
+
+/**
+ * @brief Изменить количество страниц
+ */
+bool Book::updatePageCount(int newPageCount) {
+    // Инвариант 1: количество страниц должно быть положительным
+    if (newPageCount <= 0) {
+        return false;  // Не корректное значение
+    }
+    pageCount = newPageCount;
+    return true;  // Успешно обновлено
+}
