@@ -93,3 +93,20 @@ bool Book::updatePageCount(int newPageCount) {
     pageCount = newPageCount;
     return true;  // Успешно обновлено
 }
+
+/**
+ * @brief Вывести информацию о книге
+ */
+void Book::print() const {
+    std::cout << "===== Информация о книге =====\n";
+    std::cout << "Название: " << title << "\n";
+    std::cout << "Автор: " << author << "\n";
+    std::cout << "Количество страниц: " << pageCount << "\n";
+    std::cout << "Статус: ";
+    if (isBorrowed) {
+        std::cout << "ВЫДАНА\n";
+    } else {
+        std::cout << "В БИБЛИОТЕКЕ\n";
+    }
+    std::cout << "============================\n";
+}
