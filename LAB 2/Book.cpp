@@ -110,3 +110,10 @@ void Book::print() const {
     }
     std::cout << "============================\n";
 }
+
+/**
+ * @brief Получить количество объектов
+ */
+int Book::getTotalBooks() {
+    return totalBooks;
+}
