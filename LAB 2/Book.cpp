@@ -36,3 +36,10 @@ Book::Book(const std::string& title, const std::string& author, int pageCount, b
     }
     totalBooks++;
 }
+
+/**
+ * @brief Деструктор класса
+ */
+Book::~Book() {
+    totalBooks--;
+}
