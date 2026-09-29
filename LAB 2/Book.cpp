@@ -67,3 +67,17 @@ bool Book::returnBook() {
     isBorrowed = false;
     return true;  // Успешно возвращена
 }
+
+/**
+ * @brief Получить название книги
+ */
+const std::string& Book::getTitle() const {
+    return title;
+}
+ 
+/**
+ * @brief Получить количество страниц
+ */
+int Book::getPageCount() const {
+    return pageCount;
+}
