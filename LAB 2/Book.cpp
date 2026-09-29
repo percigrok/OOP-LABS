@@ -43,3 +43,15 @@ Book::Book(const std::string& title, const std::string& author, int pageCount, b
 Book::~Book() {
     totalBooks--;
 }
+
+/**
+ * @brief Выдать книгу
+ */
+bool Book::borrowBook() {
+    // Инвариант 2: уже выданную книгу нельзя выдать повторно
+    if (isBorrowed) {
+        return false;  // Книга уже выдана
+    }
+    isBorrowed = true;
+    return true;  // Успешно выдана
+}
