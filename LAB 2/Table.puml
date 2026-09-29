@@ -1,0 +1,43 @@
+@startuml Book_Class_Design
+
+class Book {
+    - title: String
+    - author: String
+    - pageCount: int
+    - isBorrowed: bool
+    - {static} totalBooks: int
+    
+    + Book()
+    + Book(title: String, author: String, pageCount: int)
+    + Book(title: String, author: String, pageCount: int, isBorrowed: bool)
+    + ~Book()
+    
+    + getTitle(): String
+    + getPageCount(): int
+    + {static} getTotalBooks(): int
+    
+    + borrowBook(): bool
+    + returnBook(): bool
+    + updatePageCount(newPageCount: int): bool
+    
+    + print(): void
+}
+
+note right of Book::pageCount
+    Инвариант 1:
+    pageCount > 0
+end note
+
+note right of Book::borrowBook
+    Инвариант 2:
+    Нельзя выдать
+    уже выданную книгу
+end note
+
+note right of Book::returnBook
+    Инвариант 3:
+    Нельзя вернуть
+    невыданную книгу
+end note
+
+@enduml
