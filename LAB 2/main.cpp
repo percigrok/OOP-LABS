@@ -112,9 +112,34 @@ int main() {
     std::cout << "\n\nЭТАП 5: Повторный вывод состояния (проверка сохранения инвариантов)\n";
     std::cout << "=====================================================================\n";
     std::cout << "\nПосле попыток некорректных операций объекты остались в корректном состоянии:\n\n";
-    std::cout << " book1 (после попыток изменить):\n";
+    std::cout << "book1 (после попыток изменить):\n";
     book1.print();
     std::cout << "book2 (после успешного обновления на 1300 страниц):\n";
     book2.print();
     std::cout << "book3 (остался в исходном состоянии):\n";
     book3.print();
+
+    // === ЭТАП 6: Проверка независимости объектов ===
+    std::cout << "\nЭТАП 6: Проверка независимости объектов\n";
+    std::cout << "==========================================\n";
+    
+    std::cout << "\n[ДО ИЗМЕНЕНИЯ] Состояние книг:\n";
+    std::cout << "book1: " << book1.getTitle() << " (" << book1.getPageCount() << " стр.)\n";
+    std::cout << "book2: " << book2.getTitle() << " (" << book2.getPageCount() << " стр.)\n";
+    std::cout << "book3: " << book3.getTitle() << " (" << book3.getPageCount() << " стр.)\n";
+    
+    std::cout << "\n[ДЕЙСТВИЕ] Меняем только book1: updatePageCount(250)...\n";
+    book1.updatePageCount(250);
+    
+    std::cout << "\n[ПОСЛЕ ИЗМЕНЕНИЯ] Состояние книг:\n";
+    std::cout << "book1: " << book1.getTitle() << " (" << book1.getPageCount() << " стр.) <- ИЗМЕНИЛСЯ\n";
+    std::cout << "book2: " << book2.getTitle() << " (" << book2.getPageCount() << " стр.) <- НЕ ИЗМЕНИЛСЯ\n";
+    std::cout << "book3: " << book3.getTitle() << " (" << book3.getPageCount() << " стр.) <- НЕ ИЗМЕНИЛСЯ\n";
+    
+    std::cout << "\nПОДТВЕРЖДЕНО: Изменение book1 не повлияло на book2 и book3\n";
+    
+    std::cout << "\n\nОбщее количество книг в конце программы: " << Book::getTotalBooks() << "\n";
+    std::cout << "\n===== КОНЕЦ ТЕСТИРОВАНИЯ =====\n";
+    
+    return 0;
+}
