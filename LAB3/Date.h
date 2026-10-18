@@ -113,3 +113,21 @@ private:
  
     /** @brief Разность дат в днях (lhs - rhs) */
     friend int operator-(const Date& lhs, const Date& rhs) { return lhs.toSerial() - rhs.toSerial(); }
+
+    /** @brief Равны ли даты */
+    friend bool operator==(const Date& a, const Date& b) { return a.toSerial() == b.toSerial(); }
+ 
+    /** @brief Не равны ли даты */
+    friend bool operator!=(const Date& a, const Date& b) { return !(a == b); }
+ 
+    /** @brief Раньше ли a, чем b */
+    friend bool operator<(const Date& a, const Date& b) { return a.toSerial() < b.toSerial(); }
+ 
+    /** @brief Позже ли a, чем b */
+    friend bool operator>(const Date& a, const Date& b) { return b < a; }
+ 
+    /** @brief a не позже b */
+    friend bool operator<=(const Date& a, const Date& b) { return !(b < a); }
+ 
+    /** @brief a не раньше b */
+    friend bool operator>=(const Date& a, const Date& b) { return !(a < b); }
