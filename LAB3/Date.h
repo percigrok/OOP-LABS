@@ -20,7 +20,14 @@ private:
     mutable int accessCount;    ///< Количество обращений к дате (mutable: меняется даже у const объекта)
     static int objectCount;     ///< Статический счётчик живых объектов Date
  
-    static bool isLeap(int y);              ///< Высокосный ли год
+    static bool isLeap(int y);              ///< Високосный ли год
     static int daysInMonth(int m, int y);   ///< Сколько дней в месяце
     int toSerial() const;                   ///< Номер дня от 01.01.1900
     void assignSerial(int serial);          ///< Установить день, месяц и год по номеру дня
+    
+    public:
+    /**
+     * @brief Конструктор по умолчанию
+     * Создаёт дату 01.01.2000
+     */
+    Date();
