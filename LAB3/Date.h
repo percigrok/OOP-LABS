@@ -131,3 +131,27 @@ private:
  
     /** @brief a не раньше b */
     friend bool operator>=(const Date& a, const Date& b) { return !(a < b); }
+
+    /** @brief Получить день (увеличивает счётчик обращений) */
+    int getDay() const;
+ 
+    /** @brief Получить месяц (увеличивает счётчик обращений) */
+    int getMonth() const;
+ 
+    /** @brief Получить год (увеличивает счётчик обращений) */
+    int getYear() const;
+ 
+    /** @brief Сколько раз дата была прочитана */
+    int getAccessCount() const;
+ 
+    /** @brief Название дня недели */
+    std::string getWeekday() const;
+ 
+    /** @brief Вывести дату в формате дд.мм.гггг */
+    void print() const;
+ 
+    /** @brief Количество живых объектов Date */
+    static int getObjectCount();
+};
+ 
+#endif // DATE_H
