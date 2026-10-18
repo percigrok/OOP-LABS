@@ -74,3 +74,27 @@ private:
  
     /** @brief Постфиксный декремент: возвращает старую дату */
     Date operator--(int);
+
+     /**
+     * @brief Добавить дни
+     * @throws std::out_of_range если результат раньше 01.01.1900
+     */
+    Date& operator+=(int days);
+ 
+    /**
+     * @brief Вычесть дни
+     * @throws std::out_of_range если результат раньше 01.01.1900
+     */
+    Date& operator-=(int days);
+ 
+    /**
+     * @brief Умножить номер дня на число (демонстрационная операция)
+     * @throws std::out_of_range если результат раньше 01.01.1900
+     */
+    Date& operator*=(int k);
+ 
+    /**
+     * @brief Разделить номер дня на число (демонстрационная операция)
+     * @throws std::invalid_argument если k == 0
+     */
+    Date& operator/=(int k);
