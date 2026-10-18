@@ -75,3 +75,22 @@ Date::Date(int d, int m, int y) : day(d), month(m), year(y), accessCount(0) {
     }
     ++objectCount;
 }
+
+/**
+ * @brief Явный конструктор из номера дня
+ */
+Date::Date(int serial) : day(1), month(1), year(1900), accessCount(0) {
+    if (serial < 0) {
+        throw std::invalid_argument("Номер дня не может быть отрицательным");
+    }
+    assignSerial(serial);
+    ++objectCount;
+}
+ 
+/**
+ * @brief Копирующий конструктор
+ */
+Date::Date(const Date& other)
+    : day(other.day), month(other.month), year(other.year), accessCount(other.accessCount) {
+    ++objectCount;
+}
