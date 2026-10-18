@@ -223,3 +223,13 @@ int Date::getYear() const {
 int Date::getAccessCount() const {
     return accessCount;
 }
+
+/**
+ * @brief День недели (01.01.1900 был понедельником)
+ */
+std::string Date::getWeekday() const {
+    static const char* const names[] = {
+        "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"
+    };
+    return names[toSerial() % 7];
+}
