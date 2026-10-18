@@ -165,3 +165,15 @@ Date& Date::operator+=(int days) {
 Date& Date::operator-=(int days) {
     return *this += -days;
 }
+
+/**
+ * @brief Умножить номер дня на число
+ */
+Date& Date::operator*=(int k) {
+    int s = toSerial() * k;
+    if (s < 0) {
+        throw std::out_of_range("Результат раньше 01.01.1900");
+    }
+    assignSerial(s);
+    return *this;
+}
