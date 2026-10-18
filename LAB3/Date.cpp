@@ -192,3 +192,27 @@ Date& Date::operator/=(int k) {
     assignSerial(s);
     return *this;
 }
+
+/**
+ * @brief Получить день
+ */
+int Date::getDay() const {
+    ++accessCount;
+    return day;
+}
+ 
+/**
+ * @brief Получить месяц
+ */
+int Date::getMonth() const {
+    ++accessCount;
+    return month;
+}
+ 
+/**
+ * @brief Получить год
+ */
+int Date::getYear() const {
+    ++accessCount;
+    return year;
+}
