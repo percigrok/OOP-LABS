@@ -233,3 +233,18 @@ std::string Date::getWeekday() const {
     };
     return names[toSerial() % 7];
 }
+
+/**
+ * @brief Вывести дату дд.мм.гггг
+ */
+void Date::print() const {
+    ++accessCount;
+    if (day < 10) {
+        std::cout << '0';
+    }
+    std::cout << day << '.';
+    if (month < 10) {
+        std::cout << '0';
+    }
+    std::cout << month << '.' << year;
+}
