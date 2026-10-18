@@ -94,3 +94,21 @@ Date::Date(const Date& other)
     : day(other.day), month(other.month), year(other.year), accessCount(other.accessCount) {
     ++objectCount;
 }
+
+/**
+ * @brief Оператор присваивания (счётчик объектов не меняется)
+ */
+Date& Date::operator=(const Date& other) {
+    day = other.day;
+    month = other.month;
+    year = other.year;
+    accessCount = other.accessCount;
+    return *this;
+}
+ 
+/**
+ * @brief Деструктор
+ */
+Date::~Date() {
+    --objectCount;
+}
