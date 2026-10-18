@@ -41,3 +41,16 @@ public:
      * @brief Сколько мероприятий в заданном году
      */
     int countInYear(int year) const;
+
+    /**
+     * @brief Количество мероприятий в расписании
+     */
+    std::size_t size() const;
+ 
+    /**
+     * @brief Вывести расписание
+     */
+    void print() const;
+};
+ 
+#endif // SCHEDULE_H
