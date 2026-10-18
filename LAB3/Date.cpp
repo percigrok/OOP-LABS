@@ -158,3 +158,10 @@ Date& Date::operator+=(int days) {
     assignSerial(s);
     return *this;
 }
+
+/**
+ * @brief Вычесть дни (через +=)
+ */
+Date& Date::operator-=(int days) {
+    return *this += -days;
+}
