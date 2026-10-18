@@ -48,3 +48,17 @@ private:
      * @throws std::invalid_argument если serial < 0
      */
     explicit Date(int serial);
+
+     /**
+     * @brief Копирующий конструктор
+     * @param other Копируемая дата
+     */
+    Date(const Date& other);
+    /** @brief Оператор присваивания (счётчик объектов не меняется) */
+    Date& operator=(const Date& other);
+ 
+    /**
+     * @brief Деструктор
+     * Уменьшает статический счётчик живых объектов
+     */
+    ~Date();
