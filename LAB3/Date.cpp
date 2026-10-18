@@ -146,3 +146,15 @@ Date Date::operator--(int) {
     --(*this);
     return old;
 }
+
+/**
+ * @brief Добавить дни
+ */
+Date& Date::operator+=(int days) {
+    int s = toSerial() + days;
+    if (s < 0) {
+        throw std::out_of_range("Дата не может быть раньше 01.01.1900");
+    }
+    assignSerial(s);
+    return *this;
+}
