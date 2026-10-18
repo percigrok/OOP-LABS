@@ -248,3 +248,10 @@ void Date::print() const {
     }
     std::cout << month << '.' << year;
 }
+
+/**
+ * @brief Количество живых объектов Date
+ */
+int Date::getObjectCount() {
+    return objectCount;
+}
