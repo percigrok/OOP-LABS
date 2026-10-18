@@ -216,3 +216,10 @@ int Date::getYear() const {
     ++accessCount;
     return year;
 }
+
+/**
+ * @brief Количество обращений к дате
+ */
+int Date::getAccessCount() const {
+    return accessCount;
+}
