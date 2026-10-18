@@ -177,3 +177,18 @@ Date& Date::operator*=(int k) {
     assignSerial(s);
     return *this;
 }
+
+/**
+ * @brief Разделить номер дня на число
+ */
+Date& Date::operator/=(int k) {
+    if (k == 0) {
+        throw std::invalid_argument("Деление на ноль");
+    }
+    int s = toSerial() / k;
+    if (s < 0) {
+        throw std::out_of_range("Результат раньше 01.01.1900");
+    }
+    assignSerial(s);
+    return *this;
+}
