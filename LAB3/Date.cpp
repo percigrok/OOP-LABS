@@ -19,3 +19,36 @@ int Date::daysInMonth(int m, int y) {
     }
     return days[m - 1];
 }
+
+/**
+ * @brief Перевод даты в номер дня от 01.01.1900
+ */
+int Date::toSerial() const {
+    int s = 0;
+    for (int y = 1900; y < year; ++y) {
+        s += isLeap(y) ? 366 : 365;
+    }
+    for (int m = 1; m < month; ++m) {
+        s += daysInMonth(m, year);
+    }
+    return s + day - 1;
+}
+ 
+/**
+ * @brief Установка day, month, year по номеру дня
+ */
+void Date::assignSerial(int serial) {
+    int y = 1900;
+    while (serial >= (isLeap(y) ? 366 : 365)) {
+        serial -= isLeap(y) ? 366 : 365;
+        ++y;
+    }
+    int m = 1;
+    while (serial >= daysInMonth(m, y)) {
+        serial -= daysInMonth(m, y);
+        ++m;
+    }
+    year = y;
+    month = m;
+    day = serial + 1;
+}
