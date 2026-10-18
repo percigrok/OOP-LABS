@@ -112,3 +112,37 @@ Date& Date::operator=(const Date& other) {
 Date::~Date() {
     --objectCount;
 }
+
+/**
+ * @brief Префиксный инкремент
+ */
+Date& Date::operator++() {
+    *this += 1;
+    return *this;
+}
+ 
+/**
+ * @brief Постфиксный инкремент
+ */
+Date Date::operator++(int) {
+    Date old(*this);
+    ++(*this);
+    return old;
+}
+ 
+/**
+ * @brief Префиксный декремент
+ */
+Date& Date::operator--() {
+    *this -= 1;
+    return *this;
+}
+ 
+/**
+ * @brief Постфиксный декремент
+ */
+Date Date::operator--(int) {
+    Date old(*this);
+    --(*this);
+    return old;
+}
