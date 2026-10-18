@@ -31,3 +31,20 @@ private:
      * Создаёт дату 01.01.2000
      */
     Date();
+
+    /**
+     * @brief Параметризованный конструктор
+     * @param d День
+     * @param m Месяц
+     * @param y Год
+     * @throws std::invalid_argument если дата некорректна
+     */
+    Date(int d, int m, int y);
+ 
+    /**
+     * @brief Явный конструктор из номера дня
+     * @param serial Количество дней с 01.01.1900
+     * @details explicit запрещает неявное преобразование int -> Date
+     * @throws std::invalid_argument если serial < 0
+     */
+    explicit Date(int serial);
