@@ -1,0 +1,15 @@
+PROJECT_NAME           = "Лабораторная работа 2 - Class Book"
+PROJECT_BRIEF          = "ООП и Классы"
+OUTPUT_DIRECTORY       = ./docs
+INPUT                  = .
+FILE_PATTERNS          = *.cpp *.h
+RECURSIVE              = NO
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+HTML_OUTPUT            = html
+HAVE_DOT               = NO
+OUTPUT_LANGUAGE        = Russian
+QUIET                  = NO
