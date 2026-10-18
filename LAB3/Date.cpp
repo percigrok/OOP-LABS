@@ -52,3 +52,26 @@ void Date::assignSerial(int serial) {
     month = m;
     day = serial + 1;
 }
+
+/**
+ * @brief Конструктор по умолчанию
+ */
+Date::Date() : day(1), month(1), year(2000), accessCount(0) {
+    ++objectCount;
+}
+ 
+/**
+ * @brief Параметризованный конструктор
+ */
+Date::Date(int d, int m, int y) : day(d), month(m), year(y), accessCount(0) {
+    if (y < 1900) {
+        throw std::invalid_argument("Год должен быть не раньше 1900");
+    }
+    if (m < 1 || m > 12) {
+        throw std::invalid_argument("Месяц должен быть от 1 до 12");
+    }
+    if (d < 1 || d > daysInMonth(m, y)) {
+        throw std::invalid_argument("Некорректный день месяца");
+    }
+    ++objectCount;
+}
