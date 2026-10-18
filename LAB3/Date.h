@@ -98,3 +98,18 @@ private:
      * @throws std::invalid_argument если k == 0
      */
     Date& operator/=(int k);
+
+    /** @brief Дата + дни (через +=) */
+    friend Date operator+(Date lhs, int days) { lhs += days; return lhs; }
+ 
+    /** @brief Дата - дни (через -=) */
+    friend Date operator-(Date lhs, int days) { lhs -= days; return lhs; }
+ 
+    /** @brief Дата * число (через *=) */
+    friend Date operator*(Date lhs, int k) { lhs *= k; return lhs; }
+ 
+    /** @brief Дата / число (через /=) */
+    friend Date operator/(Date lhs, int k) { lhs /= k; return lhs; }
+ 
+    /** @brief Разность дат в днях (lhs - rhs) */
+    friend int operator-(const Date& lhs, const Date& rhs) { return lhs.toSerial() - rhs.toSerial(); }
