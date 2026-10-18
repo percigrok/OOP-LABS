@@ -30,3 +30,14 @@ public:
      * @param name Название
      * @param date Дата
      */
+     void addEvent(const std::string& name, const Date& date);
+ 
+    /**
+     * @brief Сколько мероприятий в заданном месяце года
+     */
+    int countInMonth(int month, int year) const;
+ 
+    /**
+     * @brief Сколько мероприятий в заданном году
+     */
+    int countInYear(int year) const;
