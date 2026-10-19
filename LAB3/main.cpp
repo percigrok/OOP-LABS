@@ -80,3 +80,23 @@ int main() {
     std::cout << "d1 > d2:  " << yn(d1 > d2) << "\n";
     std::cout << "d1 <= d2: " << yn(d1 <= d2) << "\n";
     std::cout << "d2 >= d3: " << yn(d2 >= d3) << "\n\n";
+
+    // explicit
+    std::cout << "--- explicit ---\n";
+    std::cout << "Неявное преобразование int -> Date возможно: "
+              << yn(std::is_convertible<int, Date>::value) << "\n";
+    std::cout << "Явное создание Date из int возможно: "
+              << yn(std::is_constructible<Date, int>::value) << "\n";
+    // Date bad = 100;   // ОШИБКА компиляции: explicit запрещает неявное преобразование
+    Date ok(100);        // явное преобразование работает
+    show("Date ok(100)", ok);
+    std::cout << "\n";
+ 
+    // mutable и const
+    std::cout << "--- mutable и const ---\n";
+    const Date holiday(31, 12, 2025);  // const объект
+    holiday.getDay();
+    holiday.getMonth();
+    std::cout << "const holiday прочитан 2 раза, счётчик: " << holiday.getAccessCount() << "\n";
+    holiday.print();
+    std::cout << "\nПосле print() счётчик: " << holiday.getAccessCount() << "\n\n";
