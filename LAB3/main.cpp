@@ -22,3 +22,61 @@ static void show(const std::string& name, const Date& d) {
 int main() {
     setlocale(LC_ALL, ".UTF-8");
     auto yn = [](bool b) { return b ? "да" : "нет"; };
+
+     std::cout << "===== КЛАСС DATE =====\n\n";
+ 
+    // Конструкторы
+    std::cout << "--- Конструкторы ---\n";
+    Date d1;               // конструктор по умолчанию
+    Date d2(15, 3, 2024);  // параметризованный конструктор
+    Date d3(d2);           // копирующий конструктор
+    Date d4(0);            // explicit конструктор (номер дня 0 = 01.01.1900)
+    show("d1", d1);
+    show("d2", d2);
+    show("d3", d3);
+    show("d4", d4);
+    std::cout << "\n";
+ 
+    // Унарные операторы
+    std::cout << "--- Унарные операторы ---\n";
+    ++d1;
+    show("после ++d1", d1);
+    Date old = d1++;
+    show("old = d1++ (старое)", old);
+    show("d1 (новое)", d1);
+    --d1;
+    show("после --d1", d1);
+    old = d1--;
+    show("old = d1-- (старое)", old);
+    show("d1 (новое)", d1);
+    std::cout << "\n";
+ 
+    // Составные операторы
+    std::cout << "--- Составные операторы ---\n";
+    d2 += 10;
+    show("d2 += 10", d2);
+    d2 -= 3;
+    show("d2 -= 3", d2);
+    Date d5(10);  // 11.01.1900
+    d5 *= 2;
+    show("d5 *= 2", d5);
+    d5 /= 4;
+    show("d5 /= 4", d5);
+    std::cout << "\n";
+ 
+    // Бинарные операторы
+    std::cout << "--- Бинарные операторы ---\n";
+    show("d2 + 30", d2 + 30);
+    show("d2 - 5", d2 - 5);
+    std::cout << "Разность d1 - d2 = " << (d1 - d2) << " дн.\n";
+    show("d5 * 3", d5 * 3);
+    std::cout << "\n";
+ 
+    // Операторы сравнения
+    std::cout << "--- Сравнение ---\n";
+    std::cout << "d2 == d3: " << yn(d2 == d3) << "\n";
+    std::cout << "d2 != d1: " << yn(d2 != d1) << "\n";
+    std::cout << "d1 < d2:  " << yn(d1 < d2) << "\n";
+    std::cout << "d1 > d2:  " << yn(d1 > d2) << "\n";
+    std::cout << "d1 <= d2: " << yn(d1 <= d2) << "\n";
+    std::cout << "d2 >= d3: " << yn(d2 >= d3) << "\n\n";
