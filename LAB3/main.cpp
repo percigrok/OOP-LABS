@@ -100,3 +100,30 @@ int main() {
     std::cout << "const holiday прочитан 2 раза, счётчик: " << holiday.getAccessCount() << "\n";
     holiday.print();
     std::cout << "\nПосле print() счётчик: " << holiday.getAccessCount() << "\n\n";
+
+    // static и деструктор
+    std::cout << "--- static и деструктор ---\n";
+    std::cout << "Объектов до блока: " << Date::getObjectCount() << "\n";
+    {
+        Date temp(1, 1, 2030);
+        std::cout << "Внутри блока: " << Date::getObjectCount() << "\n";
+    }
+    std::cout << "После блока (вызвался деструктор): " << Date::getObjectCount() << "\n\n";
+ 
+    // Расписание
+    std::cout << "--- Расписание мероприятий ---\n";
+    Schedule plan;
+    plan.addEvent("Сдача лабы по ООП", Date(20, 10, 2026));
+    plan.addEvent("Защита курсовой", Date(25, 10, 2026));
+    plan.addEvent("День рождения", Date(5, 11, 2026));
+    plan.addEvent("Новогодняя вечеринка", Date(31, 12, 2026));
+    plan.addEvent("Экзамен", Date(10, 1, 2027));
+    plan.print();
+    std::cout << "\nВсего мероприятий: " << plan.size() << "\n";
+    std::cout << "В октябре 2026: " << plan.countInMonth(10, 2026) << "\n";
+    std::cout << "В 2026 году: " << plan.countInYear(2026) << "\n";
+    std::cout << "В 2027 году: " << plan.countInYear(2027) << "\n\n";
+ 
+    std::cout << "===== КОНЕЦ =====\n";
+    return 0;
+}
