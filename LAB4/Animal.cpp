@@ -67,3 +67,26 @@ int Animal::getAge() const {
 int Animal::getTotalCount() {
     return totalCount;
 }
+
+/**
+ * @brief Дружественная функция: сравнивает возраст двух животных
+ */
+bool isOlder(const Animal& a, const Animal& b) {
+    return a.age > b.age;
+}
+ 
+/**
+ * @brief Указатель на самое старое животное в массиве
+ */
+Animal* Animal::getOldestAnimal(Animal* animals[], int n) {
+    if (n == 0) {
+        return nullptr;
+    }
+    Animal* oldest = animals[0];
+    for (int i = 1; i < n; i++) {
+        if (isOlder(*animals[i], *oldest)) {
+            oldest = animals[i];
+        }
+    }
+    return oldest;
+}
