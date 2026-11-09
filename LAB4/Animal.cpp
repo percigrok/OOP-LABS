@@ -40,3 +40,30 @@ Animal& Animal::operator=(const Animal& other) {
     }
     return *this;
 }
+
+/**
+ * @brief Деструктор освобождает имя и уменьшает счётчик
+ */
+Animal::~Animal() {
+    delete[] name;
+    totalCount--;
+}
+ 
+/**
+ * @brief Движение по умолчанию
+ */
+void Animal::move() const {
+    std::cout << name << " двигается\n";
+}
+ 
+const char* Animal::getName() const {
+    return name;
+}
+ 
+int Animal::getAge() const {
+    return age;
+}
+ 
+int Animal::getTotalCount() {
+    return totalCount;
+}
