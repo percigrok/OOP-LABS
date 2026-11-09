@@ -13,3 +13,30 @@ void Animal::setName(const char* newName) {
     name = new char[std::strlen(newName) + 1];
     std::strcpy(name, newName);
 }
+
+/**
+ * @brief Конструктор с параметрами
+ */
+Animal::Animal(const char* name, int age) : name(nullptr), age(age) {
+    setName(name);
+    totalCount++;
+}
+ 
+/**
+ * @brief Копирующий конструктор (глубокое копирование имени)
+ */
+Animal::Animal(const Animal& other) : name(nullptr), age(other.age) {
+    setName(other.name);
+    totalCount++;
+}
+ 
+/**
+ * @brief Оператор присваивания (глубокое копирование имени)
+ */
+Animal& Animal::operator=(const Animal& other) {
+    if (this != &other) {
+        age = other.age;
+        setName(other.name);
+    }
+    return *this;
+}
