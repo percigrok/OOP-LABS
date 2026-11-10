@@ -1,0 +1,12 @@
+Lion Simba 3 110
+Lion Leo 5 110
+Lion Nala 7 110
+Elephant Dumbo 10 660
+Elephant Ellie 20 660
+Elephant Baby 2 660
+Parrot Kesha 4 45 1
+Parrot Ara 8 60 1
+Parrot Kiki 6 30 0
+Bat Batty 3 45 25
+Bat Vampy 5 50 30
+Bat Night 2 40 22
